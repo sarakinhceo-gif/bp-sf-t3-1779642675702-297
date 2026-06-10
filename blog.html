@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>백링크 자동화 프로그램 | LLM비교 브루탈 블로그</title>
+    <meta name="description" content="마포에서 만든 LLM비교 기반 백링크 자동화 프로그램. 요즘 같은 시대에 수동 작업은 개뿔, 자동화로 갑시다. 010-6279-0862 전화주세요.">
+    <meta name="keywords" content="백링크 자동화 프로그램, LLM비교, 마포, 백링크, 자동화, SEO, 백링크 빌더, 티어3 PBN">
+    <meta name="bpaas-design-system" content="brutalist-avantgarde">
+    <meta name="bpaas-design-theme" content="kr-neon-void">
+    <link rel="canonical" href="https://sf-t3-1779642675702-297.vercel.app/">
+    <meta property="og:title" content="백링크 자동화 프로그램 | LLM비교 브루탈">
+    <meta property="og:description" content="마포에서 만든 LLM비교 기반 백링크 자동화. 진짜 개쩌는 도구. 전화 010-6279-0862">
+    <style>
+        /* RESET */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        body {
+            background: #0d0d0d;
+            color: #e0e0e0;
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.5;
+            min-height: 100vh;
+            padding: 0 1rem;
+        }
+        img, svg {
+            max-width: 100%;
+            display: block;
+        }
+        a {
+            color: inherit;
+            text-decoration: underline wavy #ff0055 2px;
+            transition: color 0.2s;
+        }
+        a:hover {
+            color: #ff0055;
+            text-decoration: none;
+        }
+        ul {
+            list-style: square inside;
+        }
+        /* TYPOGRAPHY */
+        h1 {
+            font-size: 3.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            color: #f0f0f0;
+            background: #1a1a1a;
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            border-left: 10px solid #ff0055;
+            margin-bottom: 1.5rem;
+            text-shadow: 4px 4px 0 #ff005580;
+        }
+        h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-bottom: 4px double #ff0055;
+            padding-bottom: 0.3rem;
+            margin: 2.5rem 0 1.5rem;
+            letter-spacing: -1px;
+        }
+        h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 2rem 0 1rem;
+            color: #ffb3b3;
+            background: #1a1a1a;
+            padding: 0.2rem 1rem;
+            display: inline-block;
+            border: 2px solid #ff0055;
+        }
+        p, li {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            max-width: 70ch;
+        }
+        .small {
+            font-size: 0.85rem;
+            color: #888;
+        }
+        /* LAYOUT */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0.5rem;
+        }
+        .section {
+            padding: 3rem 0;
+            border-bottom: 2px dashed #333;
+        }
+        .section:last-child {
+            border-bottom: none;
+        }
+        .gap-48 {
+            margin-top: 3rem;
+        }
+        .gap-72 {
+            margin-top: 4.5rem;
+        }
+        .flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        /* PATTERN: nav-present, hamburger-menu, responsive-768, tel-link */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #111;
+            padding: 1rem 2rem;
+            border-bottom: 3px solid #ff0055;
+            margin-bottom: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 42;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        .nav-links a {
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            text-decoration: none;
+            border: 1px solid transparent;
+            padding: 0.3rem 0.5rem;
+        }
+        .nav-links a:hover {
+            border-color: #ff0055;
+            background: #1f1f1f;
+        }
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+        }
+        .hamburger-menu span {
+            width: 28px;
+            height: 3px;
+            background: #ff0055;
+            display: block;
+            transition: 0.2s;
+        }
+        .tel-link {
+            background: #ff0055;
+            color: #0d0d0d;
+            padding: 0.5rem 1.2rem;
+            font-weight: 900;
+            text-decoration: none;
+            border-radius: 0;
+            font-size: 1.1rem;
+            border: 2px solid #ff0055;
+            transition: 0.1s;
+        }
+        .tel-link:hover {
+            background: transparent;
+            color: #ff0055;
+            border-color: #ff0055;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #111;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                padding: 1.5rem;
+                border-bottom: 3px solid #ff0055;
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .hamburger-menu {
+                display: flex;
+            }
+            nav {
+                flex-wrap: wrap;
+                position: relative;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
+            h2 {
+                font-size: 1.8rem;
+            }
+            .flex {
+                flex-direction: column;
+            }
+        }
+        /* 블로그 카드 스타일 (유지) */
+        .blog-card {
+            background: #1a1a1a;
+            border: 2px solid #333;
+            padding: 1.8rem;
+            margin: 2rem 0;
+            box-shadow: 8px 8px 0 #0a0a0a;
+            transition: 0.2s;
+        }
+        .blog-card:hover {
+            border-color: #ff0055;
+            box-shadow: 8px 8px 0 #ff005533;
+        }
+        .blog-card h3 {
+            margin-top: 0;
+            background: none;
+            border: none;
+            padding: 0;
+            color: #ffb3b3;
+        }
+        .blog-card .meta {
+            color: #777;
+            font-size: 0.9rem;
+            border-left: 3px solid #ff0055;
+            padding-left: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        .blog-card p {
+            margin-bottom: 0.5rem;
+        }
+        .btn-like {
+            background: none;
+            border: 2px solid #ff0055;
+            color: #ff0055;
+            padding: 0.3rem 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+        .btn-like:hover {
+            background: #ff0055;
+            color: #0d0d0d;
+        }
+        footer {
+            margin-top: 4rem;
+            padding: 2rem 0;
+            border-top: 2px solid #222;
+            text-align: center;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div style="font-weight:900; font-size:1.4rem; letter-spacing:-1px;">
+            <span style="color:#ff0055;">◈</span> LLM비교
+        </div>
+        <button class="hamburger-menu" aria-label="메뉴 열기" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links">
+            <a href="/">홈</a>
+            <a href="/about">서비스</a>
+            <a href="/blog">블로그</a>
+            <a href="/contact">견적</a>
+            <a href="tel:01062790862" class="tel-link">☎ 010-6279-0862</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="section">
+            <h1>📢 블로그 · 백링크 개꿀팁</h1>
+            <p class="small" style="margin-top:-0.5rem;">2025.04.13 · 마포에서 직접 갈겨쓴 내용 · by 브루탈 형</p>
+            <p>야, 너도 알지? 요즘 백링크 빌드 안 하면 구글한테 뒤지는 거. 근데 수동 작업은 개뿔, 시간만 축내고. 내가 LLM비교로 자동화 툴 만들어서 진짜 개꿀빨고 있어. 이번 블로그에는 내가 실제로 써먹은 꿀정보 하나 풀어본다.</p>
+        </section>
+
+        <section class="section">
+            <h2>💡 티어3 PBN, 왜 자동화가 필수인가?</h2>
+            <p>형들아, 솔직히 말해서 PBN 운영해본 사람? 손들어봐. ㅋㅋㅋ 다들 개고생하다가 때려치웠지? 나도 처음에는 수동으로 도메인 사서, 콘텐츠 쓰고, 링크 하나하나 넣고… 미친 짓이었어. 근데 지금은? <strong>LLM비교 기반 백링크 자동화 프로그램</strong> 하나로 3분이면 10개 사이트에 백링크 박아버림.</p>
+            <p>내가 만든 이 툴은 GPT, 클로드, 제미나이 같은 LLM들한테 각각 비교해서 가장 쎈 카피를 뽑아내. 그리고 내 PBN 네트워크(티어3, 도메인 30개)에 자동으로 포스팅하고 링크 심어. 결과? 2주 만에 DR 15에서 28로 점프. 실화임.</p>
+            <div class="blog-card">
+                <div class="meta">📅 2025-04-10 · 조회 247</div>
+                <h3>🔥 실제 사례: “게임 SEO” 프로젝트</h3>
+                <p>클라이언트가 게임 커뮤니티 사이트였는데, 백링크가 거의 없었음. 내가 LLM비교 자동화 돌려서 200개의 백링크를 3일 만에 생성. 구글 서치 콘솔 기준으로 유기 트래픽 340% 증가. 클라이언트가 “너 뭐 먹었냐” 그러더라 ㅋㅋㅋ</p>
+                <button class="btn-like">👍 좋아요 12</button>
+            </div>
+            <p>비결은 간단해. LLM비교로 <strong>앵커 텍스트 다양화</strong>하고, <strong>관련성 높은 컨텍스트</strong>를 생성하는 거. 무지성 스팸 아님. 브루탈리즘처럼 직관적이고 강력하게.</p>
+        </section>
+
+        <section class="section">
+            <h2>🛠️ 내가 쓰는 자동화 세팅 (약간 공개)</h2>
+            <div class="flex">
+                <div style="background:#1a1a1a; padding:1.5rem; border:2px solid #333; flex:1;">
+                    <h3 style="margin-top:0;">1. LLM 라우터</h3>
+                    <p>GPT-4, Claude 3 Opus, Gemini Ultra 비교 후 가장 자연스러운 문장 채택. 내 경험상 클로드가 PBN 콘텐츠에 찰떡임.</p>
+                </div>
+                <div style="background:#1a1a1a; padding:1.5rem; border:2px solid #333; flex:1;">
+                    <h3 style="margin-top:0;">2. 백링크 매트릭스</h3>
+                    <p>티어3 사이트 47개, 각각 다른 IP, 다른 CMS. 자동회전 프록시 + 쿠키 로테이션. 절대 플래그 안 뜸.</p>
+                </div>
+                <div style="background:#1a1a1a; padding:1.5rem; border:2px solid #333; flex:1;">
+                    <h3 style="margin-top:0;">3. 모니터링 봇</h3>
+                    <p>인덱싱 여부, 드롭 체크, 앵커 비율 분석. 매일 아침 7시에 텔레그램으로 보고서 옴. “오늘 15개 백링크 생존” 이런 식.</p>
+                </div>
+            </div>
+            <p class="gap-48">이 모든 게 <strong>마포에서 개발한 LLM비교 자동화</strong> 하나로 통합됨. 직접 보고 싶으면 전화해. 010-6279-0862. 너한테 맞는 세팅으로 커스텀도 해줌.</p>
+        </section>
+
+        <section class="section">
+            <h2>❓ 자주 묻는 질문 (FAQ)</h2>
+            <ul style="list-style:none; padding:0;">
+                <li style="margin-bottom:1.5rem; border-left:4px solid #ff0055; padding-left:1rem;">
+                    <strong>Q: 이거 불법 아니에요?</strong><br>
+                    A: ㅋㅋㅋ 법적으로 완전 합법. PBN 자체는 정책 위반이 아니야. 구글 가이드라인은 '조작적 링크'를 금지하는 거지, 내가 LLM으로 자연스러운 콘텐츠 만들면 문제없음. 실제로 내 사이트들 아무 패널티 없음.
+                </li>
+                <li style="margin-bottom:1.5rem; border-left:4px solid #ff0055; padding-left:1rem;">
+                    <strong>Q: 초보자도 쓸 수 있나요?</strong><br>
+                    A: 당연하지. 내가 UI를 개쉽게 만들어놨어. '타겟 URL' 넣고 '키워드' 선택하면 끝. 나머지는 LLM비교 엔진이 다 해줌. 근데 진짜 파워 유저는 CLI 모드로 더 빠르게 돌리기도 해.
+                </li>
+                <li style="margin-bottom:1.5rem; border-left:4px solid #ff0055; padding-left:1rem;">
+                    <strong>Q: 마포에서 만든 거 맞아?</strong><br>
+                    A: ㅇㅇ 맞음. 홍대 근처에서 밤새 코딩하면서 만들었어. 실제로 마포구에서 운영 중이고, 전화하면 직접 만나서 시연도 가능. 010-6279-0862.
+                </li>
+                <li style="border-left:4px solid #ff0055; padding-left:1rem;">
+                    <strong>Q: 가격은 얼마에요?</strong><br>
+                    A: 기본 플랜 월 15만원 (30개 백링크/일). 엔터프라이즈는 협의. 근데 지금 전화하면 첫 달 50% 할인 + LLM비교 전략 보고서 공짜. 형, 이 기회 놓치지 마.
+                </li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>📞 진짜 개쩌는 자동화, 지금 전화하셈</h2>
+            <p>블로그만 보고 넘어갈 거야? 아니면 진짜 트래픽을 느낄래? 내가 만든 <strong>LLM비교 백링크 자동화 프로그램</strong>은 마포에서 직접 개발하고 운영 중. 수동 작업은 개뿔, 이제는 자동화로 갑시다.</p>
+            <
+</body>
+</html>
