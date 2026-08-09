@@ -1,265 +1,263 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>백링크 자동화 프로그램 | LLM비교 브루탈 블로그</title>
-    <meta name="description" content="마포에서 만든 LLM비교 기반 백링크 자동화 프로그램. 요즘 같은 시대에 수동 작업은 개뿔, 자동화로 갑시다. 010-6279-0862 전화주세요.">
-    <meta name="keywords" content="백링크 자동화 프로그램, LLM비교, 마포, 백링크, 자동화, SEO, 백링크 빌더, 티어3 PBN">
-    <meta name="bpaas-design-system" content="brutalist-avantgarde">
-    <meta name="bpaas-design-theme" content="kr-neon-void">
-    <link rel="canonical" href="https://sf-t3-1779642675702-297.maphoshirts.today/blog.html">
-    <meta property="og:title" content="백링크 자동화 프로그램 | LLM비교 브루탈 블로그">
-    <meta property="og:description" content="마포에서 만든 LLM비교 기반 백링크 자동화 프로그램. 요즘 같은 시대에 수동 작업은 개뿔, 자동화로 갑시다. 010-6279-0862 전화주세요.">
-    <style>
-        /* RESET */
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
-        body {
-            background: #0d0d0d;
-            color: #e0e0e0;
-            font-family: 'Courier New', Courier, monospace;
-            line-height: 1.5;
-            min-height: 100vh;
-            padding: 0 1rem;
-        }
-        img, svg {
-            max-width: 100%;
-            display: block;
-        }
-        a {
-            color: inherit;
-            text-decoration: underline wavy #ff0055 2px;
-            transition: color 0.2s;
-        }
-        a:hover {
-            color: #ff0055;
-            text-decoration: none;
-        }
-        ul {
-            list-style: square inside;
-        }
-        /* TYPOGRAPHY */
-        h1 {
-            font-size: 3.2rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -2px;
-            color: #f0f0f0;
-            background: #1a1a1a;
-            display: inline-block;
-            padding: 0.2rem 1rem;
-            border-left: 10px solid #ff0055;
-            margin-bottom: 1.5rem;
-            text-shadow: 4px 4px 0 #ff005580;
-        }
-        h2 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            border-bottom: 4px double #ff0055;
-            padding-bottom: 0.3rem;
-            margin: 2.5rem 0 1.5rem;
-            letter-spacing: -1px;
-        }
-        h3 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin: 2rem 0 1rem;
-            color: #ffb3b3;
-            background: #1a1a1a;
-            padding: 0.2rem 1rem;
-            display: inline-block;
-            border: 2px solid #ff0055;
-        }
-        p, li {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            max-width: 70ch;
-        }
-        .small {
-            font-size: 0.85rem;
-            color: #888;
-        }
-        /* LAYOUT */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 0.5rem;
-        }
-        .section {
-            padding: 3rem 0;
-            border-bottom: 2px dashed #333;
-        }
-        .section:last-child {
-            border-bottom: none;
-        }
-        .gap-48 {
-            margin-top: 3rem;
-        }
-        .gap-72 {
-            margin-top: 4.5rem;
-        }
-        .flex {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-        /* PATTERN: nav-present, hamburger-menu, responsive-768, tel-link */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #111;
-            padding: 1rem 2rem;
-            border-bottom: 3px solid #ff0055;
-            margin-bottom: 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 42;
-        }
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-        .nav-links a {
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 0.95rem;
-            letter-spacing: 1px;
-            text-decoration: none;
-            border: 1px solid transparent;
-            padding: 0.3rem 0.5rem;
-        }
-        .nav-links a:hover {
-            border-color: #ff0055;
-            background: #1f1f1f;
-        }
-        .hamburger-menu {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 0.5rem;
-        }
-        .hamburger-menu span {
-            width: 28px;
-            height: 3px;
-            background: #ff0055;
-            display: block;
-            transition: 0.2s;
-        }
-        .tel-link {
-            background: #ff0055;
-            color: #0d0d0d;
-            padding: 0.5rem 1.2rem;
-            font-weight: 900;
-            text-decoration: none;
-            border-radius: 0;
-            font-size: 1.1rem;
-            border: 2px solid #ff0055;
-            transition: 0.1s;
-        }
-        .tel-link:hover {
-            background: transparent;
-            color: #ff0055;
-            border-color: #ff0055;
-        }
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                background: #111;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                padding: 1.5rem;
-                border-bottom: 3px solid #ff0055;
-            }
-            .nav-links.open {
-                display: flex;
-            }
-            .hamburger-menu {
-                display: flex;
-            }
-            nav {
-                flex-wrap: wrap;
-                position: relative;
-            }
-            h1 {
-                font-size: 2.2rem;
-            }
-            h2 {
-                font-size: 1.8rem;
-            }
-            .flex {
-                flex-direction: column;
-            }
-        }
-        /* 블로그 카드 스타일 (유지) */
-        .blog-card {
-            background: #1a1a1a;
-            border: 2px solid #333;
-            padding: 1.8rem;
-            margin: 2rem 0;
-            box-shadow: 8px 8px 0 #0a0a0a;
-            transition: 0.2s;
-        }
-        .blog-card:hover {
-            border-color: #ff0055;
-            box-shadow: 8px 8px 0 #ff005533;
-        }
-        .blog-card h3 {
-            margin-top: 0;
-            background: none;
-            border: none;
-            padding: 0;
-            color: #ffb3b3;
-        }
-        .blog-card .meta {
-            color: #777;
-            font-size: 0.9rem;
-            border-left: 3px solid #ff0055;
-            padding-left: 0.8rem;
-            margin-bottom: 1rem;
-        }
-        .blog-card p {
-            margin-bottom: 0.5rem;
-        }
-        .btn-like {
-            background: none;
-            border: 2px solid #ff0055;
-            color: #ff0055;
-            padding: 0.3rem 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-        }
-        .btn-like:hover {
-            background: #ff0055;
-            color: #0d0d0d;
-        }
-        footer {
-            margin-top: 4rem;
-            padding: 2rem 0;
-            border-top: 2px solid #222;
-            text-align: center;
-            color: #666;
-        }
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>백링크 자동화 프로그램 | LLM비교 브루탈 블로그</title>
+ <meta name="description" content="마포에서 만든 LLM비교 기반 백링크 자동화 프로그램. 요즘 같은 시대에 수동 작업은 개뿔, 자동화로 갑시다.">
+ <meta name="keywords" content="백링크 자동화 프로그램, LLM비교, 마포, 백링크, 자동화, SEO, 백링크 빌더, 티어3 PBN">
+ <link rel="canonical" href="https://sf-t3-1779642675702-297.maphoshirts.today/blog.html">
+ <meta property="og:title" content="백링크 자동화 프로그램 | LLM비교 브루탈 블로그">
+ <meta property="og:description" content="마포에서 만든 LLM비교 기반 백링크 자동화 프로그램. 요즘 같은 시대에 수동 작업은 개뿔, 자동화로 갑시다.">
+ <style>
+ /* RESET */
+ *, *::before, *::after {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ }
+ html {
+ scroll-behavior: smooth;
+ font-size: 16px;
+ }
+ body {
+ background: #0d0d0d;
+ color: #e0e0e0;
+ font-family: 'Courier New', Courier, monospace;
+ line-height: 1.5;
+ min-height: 100vh;
+ padding: 0 1rem;
+ }
+ img, svg {
+ max-width: 100%;
+ display: block;
+ }
+ a {
+ color: inherit;
+ text-decoration: underline wavy #ff0055 2px;
+ transition: color 0.2s;
+ }
+ a:hover {
+ color: #ff0055;
+ text-decoration: none;
+ }
+ ul {
+ list-style: square inside;
+ }
+ /* TYPOGRAPHY */
+ h1 {
+ font-size: 3.2rem;
+ font-weight: 900;
+ text-transform: uppercase;
+ letter-spacing: -2px;
+ color: #f0f0f0;
+ background: #1a1a1a;
+ display: inline-block;
+ padding: 0.2rem 1rem;
+ border-left: 10px solid #ff0055;
+ margin-bottom: 1.5rem;
+ text-shadow: 4px 4px 0 #ff005580;
+ }
+ h2 {
+ font-size: 2.2rem;
+ font-weight: 700;
+ text-transform: uppercase;
+ border-bottom: 4px double #ff0055;
+ padding-bottom: 0.3rem;
+ margin: 2.5rem 0 1.5rem;
+ letter-spacing: -1px;
+ }
+ h3 {
+ font-size: 1.6rem;
+ font-weight: 700;
+ margin: 2rem 0 1rem;
+ color: #ffb3b3;
+ background: #1a1a1a;
+ padding: 0.2rem 1rem;
+ display: inline-block;
+ border: 2px solid #ff0055;
+ }
+ p, li {
+ font-size: 1.1rem;
+ margin-bottom: 1rem;
+ max-width: 70ch;
+ }
+ .small {
+ font-size: 0.85rem;
+ color: #888;
+ }
+ /* LAYOUT */
+ .container {
+ max-width: 1200px;
+ margin: 0 auto;
+ padding: 2rem 0.5rem;
+ }
+ .section {
+ padding: 3rem 0;
+ border-bottom: 2px dashed #333;
+ }
+ .section:last-child {
+ border-bottom: none;
+ }
+ .gap-48 {
+ margin-top: 3rem;
+ }
+ .gap-72 {
+ margin-top: 4.5rem;
+ }
+ .flex {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 2rem;
+ }
+ /* PATTERN: nav-present, hamburger-menu, responsive-768, tel-link */
+ nav {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ background: #111;
+ padding: 1rem 2rem;
+ border-bottom: 3px solid #ff0055;
+ margin-bottom: 1rem;
+ position: sticky;
+ top: 0;
+ z-index: 42;
+ }
+ .nav-links {
+ display: flex;
+ gap: 2rem;
+ align-items: center;
+ }
+ .nav-links a {
+ font-weight: bold;
+ text-transform: uppercase;
+ font-size: 0.95rem;
+ letter-spacing: 1px;
+ text-decoration: none;
+ border: 1px solid transparent;
+ padding: 0.3rem 0.5rem;
+ }
+ .nav-links a:hover {
+ border-color: #ff0055;
+ background: #1f1f1f;
+ }
+ .hamburger-menu {
+ display: none;
+ flex-direction: column;
+ gap: 5px;
+ cursor: pointer;
+ background: none;
+ border: none;
+ padding: 0.5rem;
+ }
+ .hamburger-menu span {
+ width: 28px;
+ height: 3px;
+ background: #ff0055;
+ display: block;
+ transition: 0.2s;
+ }
+ .tel-link {
+ background: #ff0055;
+ color: #0d0d0d;
+ padding: 0.5rem 1.2rem;
+ font-weight: 900;
+ text-decoration: none;
+ border-radius: 0;
+ font-size: 1.1rem;
+ border: 2px solid #ff0055;
+ transition: 0.1s;
+ }
+ .tel-link:hover {
+ background: transparent;
+ color: #ff0055;
+ border-color: #ff0055;
+ }
+ @media (max-width: 768px) {
+ .nav-links {
+ display: none;
+ flex-direction: column;
+ width: 100%;
+ background: #111;
+ position: absolute;
+ top: 70px;
+ left: 0;
+ padding: 1.5rem;
+ border-bottom: 3px solid #ff0055;
+ }
+ .nav-links.open {
+ display: flex;
+ }
+ .hamburger-menu {
+ display: flex;
+ }
+ nav {
+ flex-wrap: wrap;
+ position: relative;
+ }
+ h1 {
+ font-size: 2.2rem;
+ }
+ h2 {
+ font-size: 1.8rem;
+ }
+ .flex {
+ flex-direction: column;
+ }
+ }
+ /* 블로그 카드 스타일 (유지) */
+ .blog-card {
+ background: #1a1a1a;
+ border: 2px solid #333;
+ padding: 1.8rem;
+ margin: 2rem 0;
+ box-shadow: 8px 8px 0 #0a0a0a;
+ transition: 0.2s;
+ }
+ .blog-card:hover {
+ border-color: #ff0055;
+ box-shadow: 8px 8px 0 #ff005533;
+ }
+ .blog-card h3 {
+ margin-top: 0;
+ background: none;
+ border: none;
+ padding: 0;
+ color: #ffb3b3;
+ }
+ .blog-card .meta {
+ color: #777;
+ font-size: 0.9rem;
+ border-left: 3px solid #ff0055;
+ padding-left: 0.8rem;
+ margin-bottom: 1rem;
+ }
+ .blog-card p {
+ margin-bottom: 0.5rem;
+ }
+ .btn-like {
+ background: none;
+ border: 2px solid #ff0055;
+ color: #ff0055;
+ padding: 0.3rem 1rem;
+ font-weight: bold;
+ cursor: pointer;
+ text-transform: uppercase;
+ font-size: 0.8rem;
+ letter-spacing: 1px;
+ }
+ .btn-like:hover {
+ background: #ff0055;
+ color: #0d0d0d;
+ }
+ footer {
+ margin-top: 4rem;
+ padding: 2rem 0;
+ border-top: 2px solid #222;
+ text-align: center;
+ color: #666;
+ }
+ </style>
   <meta property="og:url" content="https://sf-t3-1779642675702-297.maphoshirts.today/blog.html">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary">
@@ -295,7 +293,7 @@
 <p class="meta">마포 지역 안내</p>
 <h2>지역 기반으로 확인할 사항</h2>
 <p>마포권에서 여러 소규모 사이트를 함께 운영하는 경우라면 등록 사이트가 실제로 국내 서버에 있는지, 콘텐츠 언어와 표기가 지역 특성에 맞게 조정되는지도 함께 살펴볼 필요가 있다. 궁금한 점은 아래 번호로 문의할 수 있다.</p>
-<a href="tel:01062790862" class="tel-link">01062790862</a>
+
 </article>
 </section>
 </main>
